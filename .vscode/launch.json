@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:calfa}",
+      "name": "Debug calfa",
+      "program": "${workspaceFolder:calfa}/.build/debug/calfa",
+      "preLaunchTask": "swift: Build Debug calfa"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:calfa}",
+      "name": "Release calfa",
+      "program": "${workspaceFolder:calfa}/.build/release/calfa",
+      "preLaunchTask": "swift: Build Release calfa"
+    }
+  ]
+}
