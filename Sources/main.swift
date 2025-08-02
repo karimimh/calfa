@@ -11,6 +11,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Initialize font manager to load custom fonts
+        _ = FontManager.shared
+        
         let contentView = ContentView()
         
         window = NSWindow(
@@ -40,11 +43,10 @@ struct ContentView: View {
             // Header with current Persian date
             VStack(spacing: 5) {
                 Text("تقویم شمسی")
-                    .font(.title)
-                    .fontWeight(.bold)
+                    .font(.yekanBakh(size: 24, weight: .bold))
                 
                 Text(persianCalendar.currentPersianDateString)
-                    .font(.headline)
+                    .font(.yekanBakh(size: 16))
                     .foregroundColor(.secondary)
             }
             .padding(.top)
@@ -59,8 +61,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Text(persianCalendar.currentMonthYearString)
-                    .font(.title2)
-                    .fontWeight(.semibold)
+                    .font(.yekanBakh(size: 18, weight: .semibold))
                 
                 Spacer()
                 
@@ -78,6 +79,7 @@ struct ContentView: View {
             Button("برو به امروز") {
                 persianCalendar.goToToday()
             }
+            .font(.yekanBakh(size: 14))
             .buttonStyle(.borderedProminent)
             .padding(.bottom)
         }
@@ -98,8 +100,7 @@ struct PersianCalendarGrid: View {
             HStack {
                 ForEach(weekDays.indices, id: \.self) { index in
                     Text(weekDays[index])
-                        .font(.caption)
-                        .fontWeight(.bold)
+                        .font(.yekanBakh(size: 12, weight: .bold))
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity)
                 }
@@ -124,7 +125,7 @@ struct DayView: View {
     
     var body: some View {
         Text(day.persianDay)
-            .font(.system(size: 14, weight: isToday ? .bold : .regular))
+            .font(.yekanBakh(size: 14, weight: isToday ? .bold : .regular))
             .foregroundColor(day.isCurrentMonth ? .primary : .secondary)
             .frame(width: 30, height: 30)
             .background(
