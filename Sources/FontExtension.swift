@@ -25,8 +25,13 @@ class FontManager {
     
     private func loadCustomFonts() {
         // Try to load the font from Resources
-        guard let fontURL = Bundle.module.url(forResource: "YekanBakhFaNum-Regular", withExtension: "ttf") ??
-                           Bundle.module.url(forResource: "YekanBakhFaNum-Regular", withExtension: "otf") else {
+        // Depending on the SwiftPM version, processed resources land at the bundle root or under "Resources/".
+        let name = "YekanBakhFaNum-Regular"
+        let candidates: [URL?] = ["ttf", "otf"].flatMap { ext in
+            [Bundle.module.url(forResource: name, withExtension: ext),
+             Bundle.module.url(forResource: name, withExtension: ext, subdirectory: "Resources")]
+        }
+        guard let fontURL = candidates.compactMap({ $0 }).first else {
             print("ℹ️ YekanBakh font file not found. Using system font as fallback.")
             return
         }

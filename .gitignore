@@ -17,3 +17,7 @@ DerivedData/
 # Environment / local secrets
 .env
 .env.*
+
+# Commercial font (not redistributable); add your own licensed copy locally
+Resources/*.ttf
+Resources/*.otf

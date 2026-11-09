@@ -209,7 +209,8 @@ class PersianCalendarViewModel: ObservableObject {
         var days: [CalendarDay] = []
         
         // Add previous month's trailing days
-        let previousMonthDaysToShow = (firstWeekday - 1) % 7
+        // Columns start on Saturday; Foundation weekdays are 1 = Sunday ... 7 = Saturday.
+        let previousMonthDaysToShow = firstWeekday % 7
         if previousMonthDaysToShow > 0,
            let previousMonth = persianCalendar.date(byAdding: .month, value: -1, to: currentDate),
            let previousMonthRange = persianCalendar.range(of: .day, in: .month, for: previousMonth) {
