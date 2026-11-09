@@ -1,8 +1,19 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Swift Package Manager / Xcode build output
 /.build
 /Packages
 xcuserdata/
 DerivedData/
+*.xcuserstate
 .swiftpm/configuration/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
+
+# Environment / local secrets
+.env
+.env.*
