@@ -84,3 +84,7 @@ This is a small personal project and an early prototype: it has two commits and 
 
 - **One font weight.** Only the Regular weight is bundled, so the `weight` argument of `Font.yekanBakh` has no visible effect.
 - **Grid direction.** The grid is laid out left to right rather than in a right-to-left Persian layout.
+
+## License
+
+Released under the [MIT License](LICENSE). The optional Yekan Bakh font is third-party and not covered by this license.
